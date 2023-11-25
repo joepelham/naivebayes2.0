@@ -104,7 +104,7 @@ naivebayes <- R6::R6Class("naivebayes",
                         },
 
                         # Method to extract stored probabilities from the R6 class
-                        get_predictions_probas = function() {
+                        get_prediction_probas = function() {
                           if (is.null(private$probabilities)) {
                             warning("There are currently no stored prediction probabilities. Please run the 'predict' method first.")
                             return(NULL)

@@ -35,7 +35,8 @@ Fayyad, U. M. and Irani, K. B.(1993). Multi-interval discretization of continuou
 
 \author{
 Nousra Chaibati, Naomi Kaldjob & Joseph Pelham
-HyunJi Kim (author of \code{discretization} package)
+
+- HyunJi Kim (author of \code{discretization} package)
 }
 
 \examples{

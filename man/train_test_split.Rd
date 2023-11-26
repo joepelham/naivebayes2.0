@@ -37,7 +37,8 @@ Hyndman and Athanasopoulos (2013), Forecasting: principles and practice. https:/
 }
 \author{
 Nousra Chaibati, Naomi Kaldjob & Joseph Pelham
-Max Kuhn, author of the \code{caret} package
+
+- Max Kuhn (author of the \code{caret} package)
 }
 
 \examples{

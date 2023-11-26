@@ -122,13 +122,13 @@ naivebayes <- R6::R6Class("naivebayes",
                           # Form confusion matrix
                           confusion_mat <- table(actual, predicted)
                           # Calculate accuracy
-                          acc <- sum(diag(confusion_mat)) / sum(confusion_mat)
+                          acc <- calc_accuracy(actual,predictions)
                           # Calculate precision (function included below)
-                          precisions <- self$calc_precision(y_test, private$predictions)
+                          precisions <- calc_precision(actual, predictions)
                           # Calculate recall (function included below)
-                          recalls <- self$calc_recall(y_test, private$predictions)
+                          recalls <- calc_recall(actual, predictions)
                           # Calculate f1 score (function included below)
-                          f1 <- self$calc_f1(precisions[1], recalls[1], beta = f1_beta)
+                          f1 <- calc_f1(precisions[1], recalls[1], beta = f1_beta)
 
                           # Store the confusion matrix and metrics
                           private$stored_metrics <- list(
@@ -159,38 +159,8 @@ naivebayes <- R6::R6Class("naivebayes",
                             cat("\nF1 Score:\n")
                             print(private$stored_metrics$f1_score)
                           }
-                        },
+                        }
 
-                        # Recall function
-                        calc_recall = function(actual, predicted) {
-                          confusion_matrix <- table(actual, predicted)
-                          recalls <- diag(confusion_matrix) / rowSums(confusion_matrix)
-                          macro_mean_prec <- mean(recalls, na.rm = TRUE)
-
-                          recalls_list <- c("Macro Average Recall Score" = macro_mean_prec,
-                                               "Class Recall Scores" = recalls)
-
-                          return(recalls_list)
-                        },
-
-                        # Precision function
-                        calc_precision = function(actual, predicted) {
-                          confusion_matrix <- table(actual, predicted)
-                          precisions <- diag(confusion_matrix) / colSums(confusion_matrix)
-                          macro_mean_rec <- mean(precisions, na.rm = TRUE)
-
-                          precision_list <- c("Macro Average Precision Score" = macro_mean_rec,
-                                           "Class Precision Scores" = precisions)
-
-                          return(precision_list)
-                        },
-
-                      # f1 function
-                      calc_f1 = function(precision, recall, beta) {
-                        f1 =  ((1+beta) * precision * recall) / (beta * precision + recall)
-
-                        return(f1)
-                      }
                       ),
 
                       # Private variables

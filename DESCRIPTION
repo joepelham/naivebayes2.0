@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Nousra Chaibati, Naomi Kaldjob & Joseph Pelham
 Maintainer: The package maintainer <joepelham18@gmail.com>
 Description: This package has three primary components: a pre-processing set of functions, tools to perform Naive Bayes classification, and finally a set of metrics to assess the models.  
-License: MIT License
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: 

@@ -41,6 +41,7 @@ discretize <- function(data_frame, target_var, predictors = 'all') {
   # Apply the mdlp function and extract the results
   disc <- discretization::mdlp(new_data)
   disc <- disc$Disc.data
+  disc[] <- lapply(disc, as.character)
 
   # Add non-numeric variables back
   full_data <- cbind(non_numeric_data, disc)

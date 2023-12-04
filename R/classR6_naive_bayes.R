@@ -17,7 +17,7 @@ naivebayes <- R6::R6Class("naivebayes",
                                 stop("X_train must be a dataframe.")
                               }
 
-                              if (!all(sapply(data, function(col) !(is.factor(col) || is.character(col))))) {
+                              if (!all(sapply(X_train, function(col) (is.factor(col) || is.character(col))))) {
                                 stop("Columns in X_train must be either factors or characters.")
                               }
 
